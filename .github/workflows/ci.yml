@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  python-tests:
+    name: Python Unit & E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e .
+
+      - name: Audit model parameters
+        run: |
+          python tests/verify_params.py
+
+      - name: Run component unit tests
+        run: |
+          python -m unittest tests/test_components.py
+
+      - name: Run speculative generation test
+        run: |
+          python -m unittest tests/test_speculative_generation.py
+
+  cpp-build:
+    name: C++17 Engine Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential libomp-dev
+
+      - name: Configure CMake
+        run: |
+          cmake -B cpp/build -S cpp -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build C++ binaries
+        run: |
+          cmake --build cpp/build --config Release

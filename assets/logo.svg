@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 180" width="100%" height="180">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="800" height="180" rx="16" fill="url(#bgGrad)" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- Subtle grid pattern in background -->
+  <g opacity="0.07" stroke="#94a3b8" stroke-width="1">
+    <line x1="120" y1="0" x2="120" y2="180"/>
+    <line x1="200" y1="0" x2="200" y2="180"/>
+    <line x1="280" y1="0" x2="280" y2="180"/>
+    <line x1="360" y1="0" x2="360" y2="180"/>
+    <line x1="440" y1="0" x2="440" y2="180"/>
+    <line x1="520" y1="0" x2="520" y2="180"/>
+    <line x1="600" y1="0" x2="600" y2="180"/>
+    <line x1="680" y1="0" x2="680" y2="180"/>
+    <line x1="0" y1="45" x2="800" y2="45"/>
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="135" x2="800" y2="135"/>
+  </g>
+
+  <!-- Icon: Geometric Delta & Recurrence Wave -->
+  <g transform="translate(48, 30)">
+    <!-- Glow -->
+    <circle cx="60" cy="60" r="55" fill="url(#glowGrad)"/>
+    
+    <!-- Outer hexagon/delta frame -->
+    <polygon points="60,10 110,40 110,95 60,118 10,95 10,40" 
+             fill="none" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- Dynamic Delta Symbol (GDN-2 Linear Recurrence) -->
+    <path d="M 60,24 L 98,90 L 22,90 Z" 
+          fill="none" stroke="url(#primaryGrad)" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- Recurrence Loop Knot -->
+    <path d="M 40,78 Q 60,45 80,78 Q 60,98 40,78 Z" 
+          fill="url(#primaryGrad)" opacity="0.4"/>
+    <circle cx="60" cy="68" r="4" fill="#38bdf8"/>
+
+    <!-- Attention Cross-Link Rays (GQA 3:1) -->
+    <line x1="22" y1="90" x2="60" y2="68" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <line x1="98" y1="90" x2="60" y2="68" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <line x1="60" y1="24" x2="60" y2="68" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Typography -->
+  <!-- Main Title -->
+  <text x="200" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="2">
+    MABA<tspan fill="url(#primaryGrad)">.v1</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="202" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" letter-spacing="1">
+    HYBRID LINEAR RECURRENCE + GROUPED-QUERY ATTENTION
+  </text>
+
+  <!-- Badges -->
+  <!-- Badge 1: 101M Target -->
+  <g transform="translate(202, 126)">
+    <rect width="105" height="24" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="12" cy="12" r="3.5" fill="#38bdf8"/>
+    <text x="22" y="16" font-family="monospace" font-size="11" font-weight="600" fill="#cbd5e1">101.18M CORE</text>
+  </g>
+
+  <!-- Badge 2: 40 Effective Layers -->
+  <g transform="translate(315, 126)">
+    <rect width="125" height="24" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="12" cy="12" r="3.5" fill="#6366f1"/>
+    <text x="22" y="16" font-family="monospace" font-size="11" font-weight="600" fill="#cbd5e1">40 EFF LAYERS</text>
+  </g>
+
+  <!-- Badge 3: 4.3% Vocab Tax -->
+  <g transform="translate(448, 126)">
+    <rect width="135" height="24" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="12" cy="12" r="3.5" fill="#a855f7"/>
+    <text x="22" y="16" font-family="monospace" font-size="11" font-weight="600" fill="#cbd5e1">4.3% VOCAB TAX</text>
+  </g>
+
+  <!-- Badge 4: C++ Engine -->
+  <g transform="translate(591, 126)">
+    <rect width="145" height="24" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="12" cy="12" r="3.5" fill="#10b981"/>
+    <text x="22" y="16" font-family="monospace" font-size="11" font-weight="600" fill="#cbd5e1">C++17 AVX2 ENGINE</text>
+  </g>
+</svg>
