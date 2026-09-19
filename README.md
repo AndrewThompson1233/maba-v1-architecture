@@ -43,18 +43,18 @@ tags:
 # Maba Architecture: Sub-Quadratic Hybrid Linear-Recurrent Attention
 
 > [!TIP]
-> ### 🚀 UPGRADE AVAILABLE: MABA V2 ARCHITECTURE / ДОСТУПНА ВЕРСИЯ MABA V2
+> ### 🚀 UPGRADE AVAILABLE: MABA V2 ARCHITECTURE
 >
-> **Рекомендуется использовать [Maba v2 Architecture](https://github.com/AndrewThompson1233/maba-v2-architecture) ([Hugging Face](https://huggingface.co/AndrewThompson1233/maba-v2-architecture)).**
+> **We strongly recommend adopting [Maba v2 Architecture](https://github.com/AndrewThompson1233/maba-v2-architecture) ([Hugging Face](https://huggingface.co/AndrewThompson1233/maba-v2-architecture)).**
 >
-> - **Если вам нужна проверенная базовая стабильность**: используйте данную версию v1 (GDN-2 + плотный GQA), она сохраняет статус стабильного классического референса.
-> - **Почему Maba v2 в разы мощнее**:
->   - **Контекст до 1,000,000+ токенов**: разреженное внимание MABA-SA и латентное сжатие MLA дают сокращение KV-кэша в **39.6 раз** (всего 1.20 GB на 1M токенов против 48.8 GB у плотного внимания).
->   - **Строгая задержка O(1) декодирования**: 35–37 мс/токен стабильно на потребительских GPU без замедления при росте контекста.
->   - **100% точность извлечения фактов (Needle-in-a-Haystack)**: безошибочный поиск на глубине 742k+ токенов (Rank #1 среди 15,625 блоков) благодаря анти-дилюционному центроидному роутингу.
->   - **Позиционная инвариантность NoPE**: рекуррентное экспоненциальное затухание (α_t) исключает деградацию фазы RoPE на миллионных дистанциях.
+> - **When to use v1:** If your workload requires the battle-tested, conservative baseline of the original hybrid model (GDN-2 + dense GQA), v1 remains maintained as a stable reference.
+> - **Why Maba v2 is significantly more powerful:**
+>   - **1,000,000+ Native Context**: Latent MLA compression and sparse centroid attention achieve a **39.6x smaller KV-cache footprint** (1.20 GB for 1M tokens vs 48.8 GB for dense attention).
+>   - **Strict O(1) Decoding Latency**: Constant 35–37 ms/token decode rate flat up to 1M tokens on consumer GPUs with zero sequence length penalty.
+>   - **100% Needle Retrieval Accuracy**: Anti-dilution centroid routing eliminates context loss, achieving Rank #1 retrieval across 15,625 blocks at token #742,189.
+>   - **NoPE Positional Invariance**: Recurrent exponential decay (α_t) eliminates RoPE phase degradation over massive token horizons.
 >
-> 👉 **[Перейти к Maba v2 Architecture (GitHub)](https://github.com/AndrewThompson1233/maba-v2-architecture)** | **[Hugging Face](https://huggingface.co/AndrewThompson1233/maba-v2-architecture)**
+> 👉 **[Go to Maba v2 Architecture (GitHub)](https://github.com/AndrewThompson1233/maba-v2-architecture)** | **[Hugging Face](https://huggingface.co/AndrewThompson1233/maba-v2-architecture)**
 
 Official specification, scaling topology, and reference implementation of the Maba neural network architecture. Maba combines Gated DeltaNet linear recurrence (GDN-2) with Grouped-Query Attention (GQA), 2-pass physical block recycling, and native multi-token prediction (MTP) speculative decoding.
 
