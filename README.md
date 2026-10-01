@@ -112,7 +112,7 @@ Maba separates state memory into constant recurrent state (GDN-2) and compressed
 
 ---
 
-## 4-Way Macro Architecture Comparison (~101M Parameters)
+## Architectural Comparison
 
 | Metric | Maba v1.1 | Qwen 3.8 | Qwen 3.8 Flash Next | MiniCPM5 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -206,14 +206,7 @@ python3 -m maba.cli hardware
 
 ---
 
-## Verification Suite
-
-The repository contains 105 automated unit and end-to-end tests:
-* `tests/test_components.py`: Layer-level unit tests (RMSNorm, RoPE, SwiGLU, GDN-2, GQA, GatedRes, MTP, Newton-Schulz).
-* `tests/test_e2e_suite.py`: Multi-tier verification (numerical stability, autograd continuity across all 366 tensors, state isolation, boundary sequence lengths).
-* `tests/test_scaling.py`: Preset verification (50M, 100M, 300M, 1B, 3B, 7B, 30B).
-* `tests/test_speculative_generation.py`: Speculative decoding cache invariance.
-* `tests/verify_params.py`: Exact parameter budget accounting (101,177,984 total, 96,327,040 core).
+## Tests
 
 Run tests:
 ```bash
